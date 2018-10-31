@@ -3,32 +3,23 @@
 
 #include <vector>
 #include <memory>
+#include <map>
+#include <iostream>
 
 class Entity
 {
 public:
-	Entity(std::string identifier, std::string description, std::string examined, bool shouldEnter);
+	Entity(std::vector<std::string> identifier, std::string description);
 	~Entity();
 
-	void setParent(std::shared_ptr<Entity> parent);
-	void addChild(std::shared_ptr<Entity> child);
+	bool isIdentified(std::vector<std::string> expressions) const;
+	void description();
 
-	std::shared_ptr<Entity> find(std::string identifier);
-
-	std::string getIdentifier()  const;
-	std::string getDescription() const;
-	std::string getExamined()    const;
-
-	std::shared_ptr<Entity> getParent();
-	std::vector<std::shared_ptr<Entity>> getChildren();
+	std::string getIdentifier();
 
 protected:
-	bool m_shouldEnter;
-	std::string m_identifier;
-	std::string m_description;
-	std::string m_examined;
-	std::shared_ptr<Entity> m_parent;
-	std::vector<std::shared_ptr<Entity>> m_children;
+	std::string				 m_description;
+	std::vector<std::string> m_identifier;
 };
 
 #endif // _ENTITY_H

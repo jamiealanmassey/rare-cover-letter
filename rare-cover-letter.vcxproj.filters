@@ -15,7 +15,7 @@
     <ClCompile Include="source\Entity.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\GameFactory.cpp">
+    <ClCompile Include="source\Area.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,7 +26,10 @@
     <ClInclude Include="source\Entity.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="source\GameFactory.h">
+    <ClInclude Include="source\ExprToken.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Area.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

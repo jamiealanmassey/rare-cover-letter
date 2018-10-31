@@ -4,43 +4,48 @@
 #include <string>
 #include <memory>
 #include <iostream>
+#include <sstream>
+#include <iterator>
+#include <algorithm>
 
-#include "GameFactory.h"
+#include "Area.h"
+#include "ExprToken.h"
 
 /**
- * examine		  | Examines the surroundings to try and find what exists here
- * inspect [item] | Inspects an items (this may trigger a change of place)
- * leave		  | Leaves the current Entity to go somewhere else
- * help			  | Returns this list of commands
+ * examine  [item]    | Examines objects that are specified by the user
+ * move     [area]    | Moves the user to a different area of the room
+ * describe           | Describes the users current location and what they see
+ * exit			      | Leaves the game
+ * help	    [command] | Displays a list of all commands available
+ *
+ * Area -> Section of the room in which the player currently exists and can 'move' to
+ * Entity -> An object in the world that the player can interact with using 'examine'
+ *
  */
 
 class Game
 {
-private:
-	enum ExprToken {
-		EXAMINE = 0,
-		INSPECT = 1,
-		LEAVE = 2,
-		WORD = 3,
-		HELP = 4,
-		EXIT = 5,
-	};
-
 public:
 	Game();
 	~Game();
 
-	void execute();
+	int32_t execute();
 
 private:
 	std::vector<std::string> parseExpressions(std::string expr);
 	std::vector<ExprToken>   extractTokens(std::vector<std::string>);
+	std::vector<std::string> collate();
 
-	void parse(std::vector<std::string> expressions, std::vector<ExprToken> tokens);
+	void parse();
+	void processMove();
+	void processExamine();
+	void processHelp();
 
 protected:
-	bool m_running;
-	std::shared_ptr<Entity> m_currentEntity;
+	int32_t currentArea;
+	std::vector<std::unique_ptr<Area>> m_areas;
+	std::vector<std::string> m_expressions;
+	std::vector<ExprToken> m_tokens;
 };
 
 #endif // _GAME_H
