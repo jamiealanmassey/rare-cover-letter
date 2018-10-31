@@ -40,13 +40,14 @@ public:
 	/** Game Destructor **/
 	~Game();
 
+	/** initialise all Area and Entity objects and associate them **/
+	void initialise();
+
 	/**
 	 * Core execution loop of the game; the method waits for input from the user and once
 	 * caught will pass that input and parse it in many different ways to form an output.
-	 *
-	 * \returns 0 if the game was successful, 1 if something weird occured
 	 */
-	int32_t execute();
+	void execute();
 
 private:
 	/**

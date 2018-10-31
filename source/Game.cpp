@@ -2,6 +2,14 @@
 
 Game::Game()
 {
+}
+
+Game::~Game()
+{
+}
+
+void Game::initialise()
+{
 	std::string doorDescription = "";
 	doorDescription += ": There doesn't seem to be anything of value here";
 
@@ -58,11 +66,7 @@ Game::Game()
 	m_currentArea = 0;
 }
 
-Game::~Game()
-{
-}
-
-int32_t Game::execute()
+void Game::execute()
 {
 	std::cout << "               ============================================               " << std::endl;
 	std::cout << "               ==                A RARE DAY              ==               " << std::endl;
@@ -86,12 +90,10 @@ int32_t Game::execute()
 		m_tokens.clear();
 		m_tokens = extractTokens(m_expressions);
 		if (m_tokens.size() > 0 && m_tokens[0] == ExprToken::EXIT)
-			return 0;
+			return;
 
 		parse();
 	}
-
-	return 1;
 }
 
 std::vector<std::string> Game::parseExpressions(std::string expr)

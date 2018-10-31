@@ -4,5 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-	return (new Game())->execute();
+	Game* game = new Game();
+	game->initialise();
+	game->execute();
 }
