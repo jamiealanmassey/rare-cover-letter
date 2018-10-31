@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{ecf31419-594a-4180-b1bd-7072a3b593c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entry.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Entity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GameFactory.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Game.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Entity.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameFactory.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
