@@ -21,7 +21,7 @@
 *.smod
 
 # Visual Studio
-.vs
+.vs/
 Debug/
 Release/
 x64/
