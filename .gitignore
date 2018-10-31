@@ -20,6 +20,12 @@
 *.mod
 *.smod
 
+# Visual Studio
+.vs
+Debug/
+Release/
+x64/
+
 # Compiled Static libraries
 *.lai
 *.la
@@ -27,6 +33,5 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app

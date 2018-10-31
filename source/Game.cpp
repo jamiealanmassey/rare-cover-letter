@@ -55,7 +55,7 @@ Game::Game()
 	m_areas.push_back(std::unique_ptr<Area>(area2));
 	m_areas.push_back(std::unique_ptr<Area>(area3));
 
-	currentArea = 0;
+	m_currentArea = 0;
 }
 
 Game::~Game()
@@ -77,7 +77,7 @@ int32_t Game::execute()
 
 	while (true)
 	{
-		std::cout << "[" << m_areas[currentArea].get()->getName().c_str() << "]> ";
+		std::cout << "[" << m_areas[m_currentArea].get()->getName().c_str() << "]> ";
 		std::string nextLine = "";
 		std::getline(std::cin, nextLine);
 
@@ -91,7 +91,7 @@ int32_t Game::execute()
 		parse();
 	}
 
-	return 0;
+	return 1;
 }
 
 std::vector<std::string> Game::parseExpressions(std::string expr)
@@ -156,7 +156,7 @@ void Game::parse()
 	else if (m_tokens[0] == ExprToken::HELP)
 		processHelp();
 	else if (m_tokens[0] == ExprToken::DESCRIBE)
-		std::cout << m_areas[currentArea].get()->getDescription() << std::endl;
+		std::cout << m_areas[m_currentArea].get()->getDescription() << std::endl;
 	else
 		std::cout << "! nothing happens." << std::endl;
 
@@ -176,15 +176,15 @@ void Game::processMove()
 	{
 		if (m_areas[i].get()->getName() == m_expressions[1])
 		{
-			currentArea = i;
+			m_currentArea = i;
 			areaChanged = true;
 		}
 	}
 
 	if (areaChanged)
 	{
-		std::cout << "! moved to [" << m_areas[currentArea].get()->getName() << "]" << std::endl;
-		std::cout << m_areas[currentArea].get()->getDescription().c_str() << std::endl;
+		std::cout << "! moved to [" << m_areas[m_currentArea].get()->getName() << "]" << std::endl;
+		std::cout << m_areas[m_currentArea].get()->getDescription().c_str() << std::endl;
 	}
 	else
 		std::cout << "! [" << m_expressions[1] << "] is not somewhere you can move to" << std::endl;
@@ -199,7 +199,7 @@ void Game::processExamine()
 	}		
 
 	bool entityFound = false;
-	for each (std::shared_ptr<Entity> entity in m_areas[currentArea].get()->getEntities())
+	for each (std::shared_ptr<Entity> entity in m_areas[m_currentArea].get()->getEntities())
 	{
 		if (entity.get()->isIdentified(collate()))
 		{

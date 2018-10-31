@@ -1,6 +1,7 @@
 #ifndef _EXPR_TOKEN_H
 #define _EXPR_TOKEN_H
 
+/** Descriptive tokens giving meaning to each word in the input **/
 enum ExprToken
 {
 	EXAMINE = 0,
