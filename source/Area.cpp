@@ -10,9 +10,9 @@ Area::~Area()
 {
 }
 
-void Area::placeEntity(std::shared_ptr<Entity> entity)
+void Area::placeEntity(std::vector<std::string> identifiers, std::string description)
 {
-	m_entities.push_back(entity);
+	m_entities.emplace_back(std::make_unique<Entity>(identifiers, description));
 }
 
 std::string Area::getName() const
@@ -34,9 +34,14 @@ std::string Area::getDescription()
 	return result;
 }
 
-std::vector<std::shared_ptr<Entity>> Area::getEntities() const
+Entity* Area::getEntity(size_t index)
 {
-	return m_entities;
+	return m_entities[index].get();
+}
+
+size_t Area::getEntityCount() const
+{
+	return m_entities.size();
 }
 
 std::string Area::processEntities()

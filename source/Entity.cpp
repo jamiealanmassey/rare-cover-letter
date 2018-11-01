@@ -12,10 +12,10 @@ Entity::~Entity()
 
 bool Entity::isIdentified(std::vector<std::string> expressions) const
 {
-	for each (std::string expr in expressions)
+	for (auto expr : expressions)
 	{
-		bool hasExpression = false;
-		for each (std::string identifier in m_identifier)
+		auto hasExpression = false;
+		for (auto identifier : m_identifier)
 		{
 			if (identifier == expr)
 				hasExpression = true;
@@ -36,7 +36,7 @@ void Entity::description()
 std::string Entity::getIdentifier()
 {
 	std::string result = "";
-	for each (std::string identifier in m_identifier)
+	for (auto identifier : m_identifier)
 		result += (" " + identifier);
 
 	return result;

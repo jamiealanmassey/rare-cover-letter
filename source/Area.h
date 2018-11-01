@@ -30,9 +30,10 @@ public:
 	/** 
 	 * Adds an Entity as a shared_ptr to this Area object 
 	 *
-	 * \param entity shared_ptr referencing the Entity to be added
+	 * \param identifiers vector list of identifiers that linearly describe this Entity
+	 * \param description std::string representation to be outputted for this object
 	 */
-	void placeEntity(std::shared_ptr<Entity> entity);
+	void placeEntity(std::vector<std::string> identifiers, std::string description);
 
 	/** \returns the name of this Area as a string **/
 	std::string getName() const;
@@ -40,8 +41,16 @@ public:
 	/** \returns the description of this Area with any child Entities listed **/
 	std::string getDescription();
 
-	/** \returns a vector of shared_ptr<Entity> objects stored in this Area **/
-	std::vector<std::shared_ptr<Entity>> getEntities() const;
+	/** 
+	 * Retrieve an entity at the specified index
+	 *
+	 * \param index number representation of the index to retrieve the Entity from
+	 * \returns Raw memory pointer to the found Entity object
+	 */
+	Entity* getEntity(size_t index);
+
+	/** \returns the number that represents the number of entities that are stored in this Area **/
+	size_t getEntityCount() const;
 
 private:
 	/** 
@@ -54,7 +63,7 @@ private:
 protected:
 	std::string							 m_name;        ///< string representation storing the name of this Area
 	std::string						     m_description; ///< string representation storing the description for this Area
-	std::vector<std::shared_ptr<Entity>> m_entities;    ///< stores shared_ptr objects with all entities that are relevant to this Area
+	std::vector<std::unique_ptr<Entity>> m_entities;    ///< stores shared_ptr objects with all entities that are relevant to this Area
 };
 
 #endif // _AREA_H

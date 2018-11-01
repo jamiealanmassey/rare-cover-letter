@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-	Game* game = new Game();
+	auto game = new Game();
 	game->initialise();
 	game->execute();
 }
