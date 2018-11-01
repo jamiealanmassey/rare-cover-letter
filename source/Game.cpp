@@ -70,10 +70,15 @@ void Game::execute()
 		m_tokens.clear();
 		m_tokens = extractTokens(m_expressions);
 		if (m_tokens.size() > 0 && m_tokens[0] == ExprToken::EXIT)
-			return;
+			break;
 
 		parse();
 	}
+
+	std::cout << std::endl;
+	std::cout << ": You lie down in bed as another day draws to an end." << std::endl;
+	std::cout << "! PRESS ENTER TO END" << std::endl;
+	std::getline(std::cin, std::string());
 }
 
 std::vector<std::string> Game::parseExpressions(std::string expr)
