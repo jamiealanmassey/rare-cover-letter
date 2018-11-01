@@ -40,8 +40,8 @@ void Game::initialise()
 	m_areas[2]->placeEntity({ "mobile", "phone" }, ": You hear beeps come from your mobile phone. Events have just been posted for\n: the following week in Tabletop Gaming and Computer Science Society.\n: You respond with 'going', it's super effective!");
 	m_areas[2]->placeEntity({ "laptop" }, ": You pull open your laptop and see a half-finished cover letter to a game development company called Rare.\n: It mentions many characteristics about yourself, but you do not feel satisfied; surely, there must\n: be something else you can do to grab their attention and showcase your skills!");
 
-	m_areas[3]->placeEntity({ "vinyl", "player" }, ": You flick on the Vinyl Player and it starts playing some Twenty-One Pilots.\n: You bounce along to the beats.\n: You see a substantial collection of 15 or more other Vinyl’s on display next to the player.");
-	m_areas[3]->placeEntity({ "book" }, ": You pick up the book, the cover reads “Step Up and Focus”.\n: You skim through the pages and find lots of information and techniques to improve your self-evaluation\n: and how to approach situations that you encounter. +5 to confidence!");
+	m_areas[3]->placeEntity({ "vinyl", "player" }, ": You flick on the Vinyl Player and it starts playing some Twenty-One Pilots.\n: You bounce along to the beats.\n: You see a substantial collection of 15 or more other Vinyls on display next to the player.");
+	m_areas[3]->placeEntity({ "book" }, ": You pick up the book, the cover reads \"Step Up and Focus\".\n: You skim through the pages and find lots of information and techniques to improve your self-evaluation\n: and how to approach situations that you encounter. +5 to confidence!");
 
 	m_currentArea = 0;
 }

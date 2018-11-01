@@ -2,14 +2,14 @@
 #define _EXPR_TOKEN_H
 
 /** Descriptive tokens giving meaning to each word in the input **/
-enum ExprToken
+enum class ExprToken : int32_t
 {
-	EXAMINE = 0,
-	MOVE = 1,
-	DESCRIBE = 2,
-	EXIT = 3,
-	HELP = 4,
-	WORD = 5,
+	EXAMINE  = 1,
+	MOVE     = 2,
+	DESCRIBE = 4,
+	EXIT     = 8,
+	HELP     = 16,
+	WORD     = 32,
 };
 
 #endif // _EXPR_TOKEN_H
