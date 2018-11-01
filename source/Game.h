@@ -89,7 +89,7 @@ private:
 	void processHelp();
 
 protected:
-	int32_t                            m_currentArea; ///< index to identify the currently active Area
+	int                                m_currentArea; ///< index to identify the currently active Area
 	std::vector<std::unique_ptr<Area>> m_areas;       ///< vector storing unique_ptr of Areas that exist in the game
 	std::vector<std::string>           m_expressions; ///< vector of strings representing the expressions for this step
 	std::vector<ExprToken>             m_tokens;      ///< vector of strings representing the tokens for this step

@@ -2,7 +2,7 @@
 #define _EXPR_TOKEN_H
 
 /** Descriptive tokens giving meaning to each word in the input **/
-enum class ExprToken : int32_t
+enum class ExprToken : int
 {
 	EXAMINE  = 1,
 	MOVE     = 2,
