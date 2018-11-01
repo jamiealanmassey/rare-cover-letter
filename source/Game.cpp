@@ -214,7 +214,7 @@ void Game::processHelp()
 	if (m_tokens[1] == ExprToken::DESCRIBE)
 		std::cout << "! 'describe' will give you an idea of where you are and what entities exist" << std::endl;
 	else if (m_tokens[1] == ExprToken::EXAMINE)
-		std::cout << "! 'examine <item>' allows you to examine objects in your vacinity" << std::endl;
+		std::cout << "! 'examine <item>' allows you to examine objects in your vicinity" << std::endl;
 	else if (m_tokens[1] == ExprToken::HELP)
 		std::cout << "! uuuhhmm ... yes?" << std::endl;
 	else if (m_tokens[1] == ExprToken::EXIT)
