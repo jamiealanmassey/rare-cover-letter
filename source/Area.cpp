@@ -26,7 +26,7 @@ std::string Area::getDescription()
 	if (m_entities.size() > 0)
 	{
 		result.append(" \n\n");
-		result.append(" Items\n");
+		result.append("   items\n");
 		result.append(" ---------\n");
 		result.append(processEntities());
 	}
